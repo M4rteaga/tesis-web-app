@@ -7,6 +7,8 @@ import { HomeCard } from '../components/molecules/HomeCard';
 import { ConnectFormModal } from '../components/organisms/forms';
 import { useAuth } from '../lib/auth';
 import { triggerConnectionRef } from '../components/organisms/Navbar';
+import { useAtom } from 'jotai';
+import { isAuthenticatedAtom } from '../store';
 
 const Box = styled('main', {
 	display: 'flex',
@@ -36,7 +38,7 @@ const Logo = styled('img', {
 });
 
 export default function Home() {
-	const { isAuthenticated } = useAuth();
+	const [isAuthenticated] = useAtom(isAuthenticatedAtom);
 
 	return (
 		<div className="App">
